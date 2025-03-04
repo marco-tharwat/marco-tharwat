@@ -7,7 +7,7 @@ Passionate about Back-End Web Development
 - Programming Languages: Java, C#, C++  
 - Web Development: HTML, CSS
 - Database : MS SQL Server
-- Strong foundation in Data Structures, OOP, SOLID Principles
+- Strong foundation in DSA, OOP, SOLID Principles
 - Problem Solving & Mathematical Thinking  
 
 Currently diving deeper into the world of software engineering and always excited to collaborate on innovative projects.
