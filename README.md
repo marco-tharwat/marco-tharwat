@@ -1,13 +1,13 @@
 Hi, I'm Marco 👋
 
 Aspiring Software Engineer | Computer & Systems Engineering Student 🎓  
-Passionate about Web Development & Artificial Intelligence 🤖
+Passionate about Back-End Web Development
 
 **Skills**:  
-- Programming Languages: Java, C++, Python  
-- Web Development: HTML, CSS  
-- Strong foundation in Data Structures & Object-Oriented Programming (OOP)  
-- Machine Learning Enthusiast  
+- Programming Languages: Java, C#, C++  
+- Web Development: HTML, CSS
+- Database : MS SQL Server
+- Strong foundation in Data Structures, OOP, SOLID Principles
 - Problem Solving & Mathematical Thinking  
 
 Currently diving deeper into the world of software engineering and always excited to collaborate on innovative projects.
