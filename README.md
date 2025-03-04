@@ -1,5 +1,7 @@
 <h1 align="center">Hi 👋, I'm Marco</h1>
-<h3 align="center">Aspiring Software Engineer</h3>
+<h3 align="center">Aspiring Software Engineer | Computer & Systems Engineering Student 🎓  
+Passionate about Back-End Web Development
+</h3>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
