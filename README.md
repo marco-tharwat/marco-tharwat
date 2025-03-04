@@ -2,8 +2,7 @@
 <h3 align="center">Aspiring Software Engineer | Computer & Systems Engineering Student 🎓
 </h3>
 <h4>Passionate about Web Development & Artificial Intelligence 🤖</h4>
-<h4>Skills: 
-  <pre>
+Skills: 
 - Programming Languages: Java, C#, C++ 
 - Web Development: HTML, CSs
 - Strong foundation in Data Structures & Object-Oriented Programming (OOP)
@@ -11,8 +10,6 @@
     
 Currently diving deeper into the world of software engineering and always excited to collaborate on innovative projects.
 Let's build something great together! 🚀
-</pre>
-</h4>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
