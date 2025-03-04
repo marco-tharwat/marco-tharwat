@@ -1,6 +1,17 @@
 <h1 align="center">Hi 👋, I'm Marco</h1>
 <h3 align="center">Aspiring Software Engineer | Computer & Systems Engineering Student 🎓
 </h3>
+<h4>Passionate about Web Development & Artificial Intelligence 🤖</h4>
+<h4>**Skills**:  
+- Programming Languages: Java, C++, Python  
+- Web Development: HTML, CSS  
+- Strong foundation in Data Structures & Object-Oriented Programming (OOP)  
+- Machine Learning Enthusiast  
+- Problem Solving & Mathematical Thinking  
+
+Currently diving deeper into the world of software engineering and always excited to collaborate on innovative projects.
+Let's build something great together! 🚀
+</h4>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
