@@ -5,13 +5,10 @@
 <h4>Skills: 
   <pre>
 - Programming Languages: Java, C#, C++ 
-    
-- Web Development: HTML, CSS
-  
+- Web Development: HTML, CSs
 - Strong foundation in Data Structures & Object-Oriented Programming (OOP)
-  
 - Problem Solving & Mathematical Thinking  
-
+    
 Currently diving deeper into the world of software engineering and always excited to collaborate on innovative projects.
 Let's build something great together! 🚀
 </pre>
