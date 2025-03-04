@@ -4,7 +4,7 @@ Aspiring Software Engineer | Computer & Systems Engineering Student 🎓
 Passionate about Back-End Web Development
 
 **Skills**:  
-- Programming Languages: Java, C#, C++  
+- Programming Languages : Java, C#, C++  
 - Web Development: HTML, CSS
 - Database : MS SQL Server
 - Strong foundation in DSA, OOP, SOLID Principles
