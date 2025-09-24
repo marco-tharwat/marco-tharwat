@@ -20,9 +20,3 @@
 - **Databases**: Microsoft SQL Server (queries, relationships, ER modeling)  
 - **Concepts**: OOP, SOLID, Design Patterns (DAO, Factory)  
 - **Other**: HTML, CSS (basic), Git/GitHub, Visual Studio  
-
----
-
-## 🌐 Connect With Me  
-- 📧 Email: markotharwat11@gmail.com  
-- 💼 LinkedIn: http://linkedin.com/in/marcotharwat  
