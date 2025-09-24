@@ -9,7 +9,7 @@
 ## 🚀 About Me  
 - 🌱 Currently learning and building projects with **ASP.NET Core MVC**  
 - 🗄️ Strong foundation in **OOP, SOLID principles, and database design**  
-- 🤝 Active in **ICPC contests** — sharpening my problem-solving with **C++** and algorithms  
+- 🤝 Active problem solver on **Hacker Rank**, **Leet Code** and **Code Forces** — sharpening my problem-solving skills  
 - 💡 Interested in **backend development, databases, and enterprise systems**  
 
 ---
