@@ -17,5 +17,5 @@
 - **Languages**: C#, Java, C++  
 - **Backend**: ASP.NET Core MVC, Entity Framework Core  
 - **Databases**: Microsoft SQL Server 
-- **Concepts**: OOP, SOLID, Design Patterns
+- **Concepts**: OOP, DSA, SOLID, Design Patterns
 - **Other**: HTML, CSS (basic), Git/GitHub, Visual Studio  
