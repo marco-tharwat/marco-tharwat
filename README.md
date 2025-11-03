@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Marco Tharwat  
 
 🎓 Computer Engineering student at Fayoum University (graduating 2027)  
-💻 Aspiring **.NET Backend Developer**
+💻 Aspiring **.NET Backend Developer**\n
 ⚡ Passionate about **problem-solving, clean code, and scalable backend systems**  
 
 ---
