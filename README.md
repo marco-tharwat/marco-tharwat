@@ -2,7 +2,7 @@
 
 🎓 Computer Engineering student at Fayoum University (graduating 2027)  
 💻 Aspiring **.NET Backend Developer**                                 .
-⚡ Passionate about **problem-solving, clean code, and scalable backend systems**  
+  
 
 ---
 
