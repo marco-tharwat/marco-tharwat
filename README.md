@@ -1,21 +1,15 @@
-# 👋 Hi, I'm Marco Tharwat  
+<p align="center">
+  <img src="https://raw.githubusercontent.com/marco-tharwat/marco-tharwat/main/assets/neon-shapes.svg" alt="Neon animated header" width="100%" />
+</p>
 
-🎓 Computer Engineering student at Fayoum University (graduating 2027)  
-💻 Aspiring **.NET Backend Developer**                                 .
-  
+<p align="center">
+  <a href="https://linkedin.com/in/marcotharwat" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0B1220?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <img src="https://img.shields.io/badge/.NET-0B1220?style=for-the-badge&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/C%23-0B1220?style=for-the-badge&logo=csharp&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQL%20Server-0B1220?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" />
+</p>
 
----
-
-## 🚀 About Me  
-- 🗄️ Strong foundation in **OOP, SOLID principles, and database design**  
-- 🤝 Active problem solver on **Hacker Rank**, **Leet Code** and **Code Forces** — sharpening my problem-solving skills  
-- 💡 Interested in **backend development, databases, and enterprise systems**  
-
----
-
-## 🛠️ Tech Stack  
-- **Languages**: C#, Java, C++  
-- **Backend**: ASP.NET Core MVC, Entity Framework Core  
-- **Databases**: Microsoft SQL Server 
-- **Concepts**: OOP, DSA, SOLID, Design Patterns
-- **Other**: HTML, CSS (basic), Git/GitHub, Visual Studio  
+### Summary
+I’m **Marco Tharwat Heshmat**, a **.NET backend developer** and Computer Engineering student based in **Cairo, Egypt**. I build backend systems using **C#**, **ASP.NET Core**, **Entity Framework Core**, and **SQL Server**, with a strong foundation in **OOP**, **SOLID**, and database design. I’m active in student communities (Enactus, IEEE, ICPC) and enjoy solving problems and building clean, scalable applications.
