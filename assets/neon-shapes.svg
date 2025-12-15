@@ -9,24 +9,36 @@
     </linearGradient>
 
     <!-- Neon glow -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feColorMatrix in="b" type="matrix"
-        values="1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 14 -6" result="g"/>
-      <feMerge>
-        <feMergeNode in="g"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+  <!-- Big soft outer glow -->
+  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur1"/>
+  <feColorMatrix in="blur1" type="matrix"
+    values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 18 -6" result="glow1"/>
+
+  <!-- Tighter bright glow -->
+  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2"/>
+  <feColorMatrix in="blur2" type="matrix"
+    values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 22 -7" result="glow2"/>
+
+  <feMerge>
+    <feMergeNode in="glow1"/>
+    <feMergeNode in="glow2"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
 
     <style>
       .bg { fill:#070014; } /* purple-black */
-      .shape { fill: url(#g); opacity:.92; filter:url(#glow); }
+      .shape { opacity: 1; filter:url(#glow); }
+      .line  { opacity: .75; }
       .soft { opacity:.35; }
-      .line { stroke: url(#g); stroke-width:2; opacity:.60; filter:url(#glow); fill:none; }
+      <!-- .line { stroke: url(#g); stroke-width:2; opacity:.60; filter:url(#glow); fill:none; } -->
       text { font-family: ui-sans-serif, system-ui, Segoe UI, Arial; }
     </style>
   </defs>
