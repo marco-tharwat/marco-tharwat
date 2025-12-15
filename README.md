@@ -7,5 +7,5 @@
   </a>
 </p>
 
-### Summary
-I’m **Marco Tharwat Heshmat**, a **.NET backend developer** and Computer Engineering student based in **Cairo, Egypt**. I build backend systems using **C#**, **ASP.NET Core**, **Entity Framework Core**, and **SQL Server**, with a strong foundation in **OOP**, **SOLID**, and database design. I’m active in student communities (Enactus, IEEE, ICPC) and enjoy solving problems and building clean, scalable applications.
+## Summary
+I’m Marco Tharwat Heshmat, a .NET backend developer and Computer Engineering student in Cairo, Egypt. I build backend systems with C#, ASP.NET Core, Entity Framework Core, and SQL Server, with a solid foundation in OOP, SOLID, and database design. Active in Enactus, IEEE, and ICPC, and always improving through problem-solving and building scalable applications.
