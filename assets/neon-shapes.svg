@@ -120,9 +120,16 @@
       MARCO THARWAT HESHMAT
     </text>
 
-    <text x="50%" y="75%" text-anchor="middle"
-      font-size="18" fill="#F5F3FF" opacity="0.95" filter="url(#neon)">
-      &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
-    </text>
+    <!-- subtitle glow (behind) -->
+<text x="50%" y="75%" text-anchor="middle"
+  font-size="18" fill="#F5F3FF" opacity="0.85" filter="url(#neon)">
+  &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
+</text>
+
+<!-- subtitle crisp (on top) -->
+<text x="50%" y="75%" text-anchor="middle"
+  font-size="18" fill="#FFFFFF" opacity="0.92">
+  &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
+</text>
   </g>
 </svg>
