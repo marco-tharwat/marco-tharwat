@@ -1,1 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="55%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
 
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feColorMatrix in="b" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 14 -6" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .bg { fill:#05050a; }
+      .shape { fill: url(#g); opacity:.9; filter:url(#glow); }
+      .soft { opacity:.35; }
+      .line { stroke: url(#g); stroke-width:2; opacity:.55; filter:url(#glow); fill:none; }
+      text { font-family: ui-sans-serif, system-ui, Segoe UI, Arial; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="320"/>
+
+  <path class="line" d="M0,220 C180,180 360,260 540,220 C720,180 900,260 1200,205">
+    <animate attributeName="d" dur="7s" repeatCount="indefinite"
+      values="
+        M0,220 C180,180 360,260 540,220 C720,180 900,260 1200,205;
+        M0,210 C220,260 380,150 560,210 C740,270 930,160 1200,220;
+        M0,220 C180,180 360,260 540,220 C720,180 900,260 1200,205
+      "/>
+  </path>
+
+  <circle class="shape soft" cx="180" cy="130" r="58">
+    <animate attributeName="cx" dur="6s" repeatCount="indefinite" values="180;240;180"/>
+    <animate attributeName="cy" dur="5s" repeatCount="indefinite" values="130;95;130"/>
+    <animate attributeName="r"  dur="7s" repeatCount="indefinite" values="58;72;58"/>
+  </circle>
+
+  <circle class="shape" cx="980" cy="110" r="34">
+    <animate attributeName="cx" dur="7s" repeatCount="indefinite" values="980;920;980"/>
+    <animate attributeName="cy" dur="6s" repeatCount="indefinite" values="110;150;110"/>
+  </circle>
+
+  <g transform="translate(560 120)" filter="url(#glow)">
+    <polygon class="shape" points="0,-36 31,-18 31,18 0,36 -31,18 -31,-18"/>
+    <animateTransform attributeName="transform" type="rotate"
+      from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <text x="50%" y="62%" text-anchor="middle" font-size="44" fill="#FFFFFF" opacity="0.95" letter-spacing="1">
+      MARCO THARWAT HESHMAT
+    </text>
+    <text x="50%" y="75%" text-anchor="middle" font-size="18" fill="#E5E7EB" opacity="0.9">
+      .NET Developer • Backend • SQL Server
+    </text>
+  </g>
+</svg>
