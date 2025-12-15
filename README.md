@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/marco-tharwat/marco-tharwat/main/assets/neon-shapes.svg" width="100%" alt="Neon header" />
-</p>
+  <img src="https://github.com/marco-tharwat/marco-tharwat/raw/main/assets/neon-shapes.svg" width="100%" alt="Neon animated header" /></p>
 <p align="center">
   <a href="https://linkedin.com/in/marcotharwat" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0B1220?style=for-the-badge&logo=linkedin&logoColor=white" />
