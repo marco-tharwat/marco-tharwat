@@ -2,20 +2,20 @@
   <defs>
     <!-- Purple-heavy gradient -->
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"  stop-color="#F0ABFC"/>  <!-- light fuchsia -->
-      <stop offset="35%" stop-color="#C026D3"/>  <!-- fuchsia -->
-      <stop offset="70%" stop-color="#A855F7"/>  <!-- purple -->
-      <stop offset="100%" stop-color="#7C3AED"/> <!-- deep purple -->
+      <stop offset="0%"  stop-color="#F0ABFC"/>
+      <stop offset="35%" stop-color="#C026D3"/>
+      <stop offset="70%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
     </linearGradient>
 
-    <!-- Subtle background bloom/vignette -->
+    <!-- Background bloom/vignette -->
     <radialGradient id="bgGlow" cx="50%" cy="45%" r="70%">
       <stop offset="0%" stop-color="#2a0a4a" stop-opacity="0.9"/>
       <stop offset="55%" stop-color="#0a0015" stop-opacity="0.55"/>
       <stop offset="100%" stop-color="#070014" stop-opacity="1"/>
     </radialGradient>
 
-    <!-- Strong neon "bloom" glow (colored, layered, screen-like) -->
+    <!-- Neon bloom glow (more purple core, less white haze) -->
     <filter id="neon" x="-90%" y="-90%" width="280%" height="280%">
       <!-- Outer aura -->
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="auraAlpha"/>
@@ -29,9 +29,9 @@
       <feComposite in="midColor" in2="midAlpha" operator="in" result="mid"/>
       <feGaussianBlur in="mid" stdDeviation="10" result="midBlur"/>
 
-      <!-- Tight hot core -->
+      <!-- Tight hot core (PURPLE instead of near-white) -->
       <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="coreAlpha"/>
-      <feFlood flood-color="#F5F3FF" flood-opacity="1" result="coreColor"/>
+      <feFlood flood-color="#E879F9" flood-opacity="1" result="coreColor"/>
       <feComposite in="coreColor" in2="coreAlpha" operator="in" result="core"/>
       <feGaussianBlur in="core" stdDeviation="3.5" result="coreBlur"/>
 
@@ -105,14 +105,23 @@
     </rect>
   </g>
 
-  <!-- title -->
-  <g filter="url(#neon)">
+  <!-- title (glow + crisp overlay) -->
+  <g>
+    <!-- glow layer -->
+    <text x="50%" y="62%" text-anchor="middle"
+      font-size="46" fill="#FFFFFF" opacity="0.95" letter-spacing="1"
+      filter="url(#neon)">
+      MARCO THARWAT HESHMAT
+    </text>
+
+    <!-- crisp layer on top -->
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.98" letter-spacing="1">
       MARCO THARWAT HESHMAT
     </text>
+
     <text x="50%" y="75%" text-anchor="middle"
-      font-size="18" fill="#F5F3FF" opacity="0.95">
+      font-size="18" fill="#F5F3FF" opacity="0.95" filter="url(#neon)">
       &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
     </text>
   </g>
