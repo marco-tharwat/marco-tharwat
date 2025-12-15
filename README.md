@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/marco-tharwat/marco-tharwat/main/assets/neon-shapes.svg" alt="Neon animated header" width="100%" />
+  <img src="https://github.com/marco-tharwat/marco-tharwat/raw/main/assets/neon-shapes.svg" width="100%" alt="Neon animated header" />
 </p>
 
 <p align="center">
