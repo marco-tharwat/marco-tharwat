@@ -42,6 +42,16 @@
 
     <!-- Reusable # symbol (centered at 0,0) -->
     <symbol id="hash" viewBox="-50 -50 100 100">
+      <!-- subtle repeating # pattern -->
+<pattern id="hashPattern" width="140" height="140" patternUnits="userSpaceOnUse">
+  <!-- 2 hashes per tile for a nicer repeat -->
+  <use href="#hash"
+       transform="translate(40 45) scale(0.20) rotate(-12)"
+       fill="#A855F7" opacity="0.12"/>
+  <use href="#hash"
+       transform="translate(105 105) scale(0.16) rotate(18)"
+       fill="#C026D3" opacity="0.10"/>
+</pattern>
       <!-- no fill specified so it inherits from the <use> -->
       <rect x="-28" y="-42" width="12" height="84" rx="6"/>
       <rect x="16"  y="-42" width="12" height="84" rx="6"/>
@@ -59,6 +69,9 @@
   </defs>
 
   <rect class="bg" x="0" y="0" width="1200" height="320"/>
+  <!-- repeating # overlay (very subtle) -->
+<rect x="0" y="0" width="1200" height="320"
+      fill="url(#hashPattern)" opacity="0.35"/>
 
   <!-- neon wave -->
   <path class="line" d="M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207">
