@@ -15,21 +15,18 @@
       <stop offset="100%" stop-color="#070014" stop-opacity="1"/>
     </radialGradient>
 
-    <!-- Neon bloom glow (more purple core, less white haze) -->
+    <!-- Neon bloom glow -->
     <filter id="neon" x="-90%" y="-90%" width="280%" height="280%">
-      <!-- Outer aura -->
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="auraAlpha"/>
       <feFlood flood-color="#C026D3" flood-opacity="0.95" result="auraColor"/>
       <feComposite in="auraColor" in2="auraAlpha" operator="in" result="aura"/>
       <feGaussianBlur in="aura" stdDeviation="18" result="auraBlur"/>
 
-      <!-- Mid glow -->
       <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="midAlpha"/>
       <feFlood flood-color="#A855F7" flood-opacity="1" result="midColor"/>
       <feComposite in="midColor" in2="midAlpha" operator="in" result="mid"/>
       <feGaussianBlur in="mid" stdDeviation="10" result="midBlur"/>
 
-      <!-- Tight hot core (PURPLE instead of near-white) -->
       <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="coreAlpha"/>
       <feFlood flood-color="#E879F9" flood-opacity="1" result="coreColor"/>
       <feComposite in="coreColor" in2="coreAlpha" operator="in" result="core"/>
@@ -42,6 +39,15 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Reusable # symbol (centered at 0,0) -->
+    <symbol id="hash" viewBox="-50 -50 100 100">
+      <!-- no fill specified so it inherits from the <use> -->
+      <rect x="-28" y="-42" width="12" height="84" rx="6"/>
+      <rect x="16"  y="-42" width="12" height="84" rx="6"/>
+      <rect x="-44" y="-18" width="88" height="12" rx="6"/>
+      <rect x="-44" y="18"  width="88" height="12" rx="6"/>
+    </symbol>
 
     <style>
       .bg { fill:url(#bgGlow); }
@@ -64,22 +70,36 @@
       "/>
   </path>
 
-  <!-- blobs -->
-  <circle class="shape soft" cx="185" cy="125" r="62">
-    <animate attributeName="cx" dur="6s" repeatCount="indefinite" values="185;250;185"/>
-    <animate attributeName="cy" dur="5s" repeatCount="indefinite" values="125;92;125"/>
-    <animate attributeName="r"  dur="7s" repeatCount="indefinite" values="62;78;62"/>
-  </circle>
+  <!-- # blobs (replacing circles) -->
+  <!-- left big soft # (was r=62 with cx/cy/r animation) -->
+  <use class="shape soft" href="#hash">
+    <animate attributeName="transform" dur="7s" repeatCount="indefinite"
+      values="
+        translate(185 125) scale(1.55) rotate(-8);
+        translate(250 92)  scale(1.95) rotate(10);
+        translate(185 125) scale(1.55) rotate(-8)
+      "/>
+  </use>
 
-  <circle class="shape" cx="985" cy="110" r="36">
-    <animate attributeName="cx" dur="7s" repeatCount="indefinite" values="985;925;985"/>
-    <animate attributeName="cy" dur="6s" repeatCount="indefinite" values="110;150;110"/>
-  </circle>
+  <!-- right small bright # (was r=36 with cx/cy animation) -->
+  <use class="shape" href="#hash">
+    <animate attributeName="transform" dur="7s" repeatCount="indefinite"
+      values="
+        translate(985 110) scale(0.95) rotate(12);
+        translate(925 150) scale(0.95) rotate(-18);
+        translate(985 110) scale(0.95) rotate(12)
+      "/>
+  </use>
 
-  <circle class="shape soft" cx="760" cy="236" r="52">
-    <animate attributeName="cx" dur="8s" repeatCount="indefinite" values="760;830;760"/>
-    <animate attributeName="cy" dur="6s" repeatCount="indefinite" values="236;205;236"/>
-  </circle>
+  <!-- bottom mid soft # (was r=52 with cx/cy animation) -->
+  <use class="shape soft" href="#hash">
+    <animate attributeName="transform" dur="8s" repeatCount="indefinite"
+      values="
+        translate(760 236) scale(1.35) rotate(6);
+        translate(830 205) scale(1.35) rotate(-10);
+        translate(760 236) scale(1.35) rotate(6)
+      "/>
+  </use>
 
   <!-- rotating hex -->
   <g transform="translate(560 120)" filter="url(#neon)">
@@ -107,29 +127,25 @@
 
   <!-- title (glow + crisp overlay) -->
   <g>
-    <!-- glow layer -->
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.95" letter-spacing="1"
       filter="url(#neon)">
       MARCO THARWAT HESHMAT
     </text>
 
-    <!-- crisp layer on top -->
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.98" letter-spacing="1">
       MARCO THARWAT HESHMAT
     </text>
 
-    <!-- subtitle glow (behind) -->
-<text x="50%" y="75%" text-anchor="middle"
-  font-size="18" fill="#F5F3FF" opacity="0.85" filter="url(#neon)">
-  &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
-</text>
+    <text x="50%" y="75%" text-anchor="middle"
+      font-size="18" fill="#F5F3FF" opacity="0.85" filter="url(#neon)">
+      &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
+    </text>
 
-<!-- subtitle crisp (on top) -->
-<text x="50%" y="75%" text-anchor="middle"
-  font-size="18" fill="#FFFFFF" opacity="0.92">
-  &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
-</text>
+    <text x="50%" y="75%" text-anchor="middle"
+      font-size="18" fill="#FFFFFF" opacity="0.92">
+      &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
+    </text>
   </g>
 </svg>
