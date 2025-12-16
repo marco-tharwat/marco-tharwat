@@ -15,7 +15,7 @@
       <stop offset="100%" stop-color="#070014" stop-opacity="1"/>
     </radialGradient>
 
-    <!-- Neon bloom glow -->
+    <!-- Neon bloom glow (for foreground shapes/text only) -->
     <filter id="neon" x="-90%" y="-90%" width="280%" height="280%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="auraAlpha"/>
       <feFlood flood-color="#C026D3" flood-opacity="0.95" result="auraColor"/>
@@ -42,22 +42,35 @@
 
     <!-- Reusable # symbol (centered at 0,0) -->
     <symbol id="hash" viewBox="-50 -50 100 100">
-      <!-- subtle repeating # pattern -->
-<pattern id="hashPattern" width="140" height="140" patternUnits="userSpaceOnUse">
-  <!-- 2 hashes per tile for a nicer repeat -->
-  <use href="#hash"
-       transform="translate(40 45) scale(0.20) rotate(-12)"
-       fill="#A855F7" opacity="0.12"/>
-  <use href="#hash"
-       transform="translate(105 105) scale(0.16) rotate(18)"
-       fill="#C026D3" opacity="0.10"/>
-</pattern>
-      <!-- no fill specified so it inherits from the <use> -->
       <rect x="-28" y="-42" width="12" height="84" rx="6"/>
       <rect x="16"  y="-42" width="12" height="84" rx="6"/>
       <rect x="-44" y="-18" width="88" height="12" rx="6"/>
       <rect x="-44" y="18"  width="88" height="12" rx="6"/>
     </symbol>
+
+    <!-- Subtle repeating # pattern (NO glow/filter so it stays professional) -->
+    <pattern id="hashPattern"
+             width="110" height="110"
+             patternUnits="userSpaceOnUse"
+             patternContentUnits="userSpaceOnUse">
+      <!-- tiny # (1) -->
+      <g transform="translate(22 28) scale(0.18) rotate(-12)"
+         fill="#A855F7" opacity="0.10">
+        <rect x="-28" y="-42" width="12" height="84" rx="6"/>
+        <rect x="16"  y="-42" width="12" height="84" rx="6"/>
+        <rect x="-44" y="-18" width="88" height="12" rx="6"/>
+        <rect x="-44" y="18"  width="88" height="12" rx="6"/>
+      </g>
+
+      <!-- tiny # (2) offset -->
+      <g transform="translate(82 82) scale(0.15) rotate(18)"
+         fill="#C026D3" opacity="0.08">
+        <rect x="-28" y="-42" width="12" height="84" rx="6"/>
+        <rect x="16"  y="-42" width="12" height="84" rx="6"/>
+        <rect x="-44" y="-18" width="88" height="12" rx="6"/>
+        <rect x="-44" y="18"  width="88" height="12" rx="6"/>
+      </g>
+    </pattern>
 
     <style>
       .bg { fill:url(#bgGlow); }
@@ -68,10 +81,10 @@
     </style>
   </defs>
 
+  <!-- background -->
   <rect class="bg" x="0" y="0" width="1200" height="320"/>
-  <!-- repeating # overlay (very subtle) -->
-<rect x="0" y="0" width="1200" height="320"
-      fill="url(#hashPattern)" opacity="0.35"/>
+  <!-- subtle repeating # overlay -->
+  <rect x="0" y="0" width="1200" height="320" fill="url(#hashPattern)" opacity="0.55"/>
 
   <!-- neon wave -->
   <path class="line" d="M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207">
@@ -84,41 +97,40 @@
   </path>
 
   <!-- # blobs (replacing circles) -->
-  <!-- left big soft # (was r=62 with cx/cy/r animation) -->
   <use class="shape soft" href="#hash">
-    <animate attributeName="transform" dur="7s" repeatCount="indefinite"
+    <animate attributeName="transform" dur="6.8s" repeatCount="indefinite"
       values="
-        translate(185 125) scale(1.55) rotate(-8);
-        translate(250 92)  scale(1.95) rotate(10);
-        translate(185 125) scale(1.55) rotate(-8)
+        translate(185 125) scale(1.45) rotate(-8);
+        translate(245 95)  scale(1.85) rotate(10);
+        translate(185 125) scale(1.45) rotate(-8)
       "/>
   </use>
 
-  <!-- right small bright # (was r=36 with cx/cy animation) -->
   <use class="shape" href="#hash">
-    <animate attributeName="transform" dur="7s" repeatCount="indefinite"
+    <animate attributeName="transform" dur="7.2s" repeatCount="indefinite"
       values="
-        translate(985 110) scale(0.95) rotate(12);
-        translate(925 150) scale(0.95) rotate(-18);
-        translate(985 110) scale(0.95) rotate(12)
+        translate(985 110) scale(0.90) rotate(12);
+        translate(925 150) scale(0.90) rotate(-18);
+        translate(985 110) scale(0.90) rotate(12)
       "/>
   </use>
 
-  <!-- bottom mid soft # (was r=52 with cx/cy animation) -->
   <use class="shape soft" href="#hash">
-    <animate attributeName="transform" dur="8s" repeatCount="indefinite"
+    <animate attributeName="transform" dur="8.0s" repeatCount="indefinite"
       values="
-        translate(760 236) scale(1.35) rotate(6);
-        translate(830 205) scale(1.35) rotate(-10);
-        translate(760 236) scale(1.35) rotate(6)
+        translate(760 236) scale(1.25) rotate(6);
+        translate(830 205) scale(1.25) rotate(-10);
+        translate(760 236) scale(1.25) rotate(6)
       "/>
   </use>
 
-  <!-- rotating hex -->
+  <!-- rotating hex (fixed so it rotates in place) -->
   <g transform="translate(560 120)" filter="url(#neon)">
-    <polygon class="shape" points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19"/>
-    <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-      from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+    <g>
+      <polygon class="shape" points="0,-38 33,-19 33,19 0,38 -33,19 -33,-19"/>
+      <animateTransform attributeName="transform" type="rotate"
+        from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+    </g>
   </g>
 
   <!-- drifting squares -->
