@@ -10,12 +10,12 @@
 
     <!-- Background bloom/vignette -->
     <radialGradient id="bgGlow" cx="50%" cy="45%" r="70%">
-      <stop offset="0%" stop-color="#2a0a4a" stop-opacity="0.92"/>
-      <stop offset="55%" stop-color="#0a0015" stop-opacity="0.58"/>
+      <stop offset="0%" stop-color="#2a0a4a" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#0a0015" stop-opacity="0.55"/>
       <stop offset="100%" stop-color="#070014" stop-opacity="1"/>
     </radialGradient>
 
-    <!-- Neon bloom glow (foreground: wave/text/shapes) -->
+    <!-- Neon bloom glow -->
     <filter id="neon" x="-90%" y="-90%" width="280%" height="280%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="auraAlpha"/>
       <feFlood flood-color="#C026D3" flood-opacity="0.95" result="auraColor"/>
@@ -40,113 +40,86 @@
       </feMerge>
     </filter>
 
-    <!-- Reusable # symbol (centered at 0,0) -->
-    <symbol id="hash" viewBox="-50 -50 100 100">
-      <rect x="-28" y="-42" width="12" height="84" rx="6"/>
-      <rect x="16"  y="-42" width="12" height="84" rx="6"/>
-      <rect x="-44" y="-18" width="88" height="12" rx="6"/>
-      <rect x="-44" y="18"  width="88" height="12" rx="6"/>
-    </symbol>
-
     <style>
       .bg { fill:url(#bgGlow); }
-
-      /* background hashes (no glow -> cleaner + readable text) */
-      .bh1 { fill:#A855F7; opacity:.20; }
-      .bh2 { fill:#C026D3; opacity:.14; }
-      .bh3 { fill:#E879F9; opacity:.10; }
-
-      /* foreground */
-      .line { stroke:url(#g); stroke-width:2.6; opacity:.85; filter:url(#neon); fill:none; }
+      .line  { stroke:url(#g); stroke-width:2.2; opacity:.75; filter:url(#neon); fill:none; }
+      .hash  { stroke:url(#g); stroke-width:3; stroke-linecap:round; opacity:.9; filter:url(#neon); }
+      .hashSoft { opacity:.45; }
       text { font-family: ui-sans-serif, system-ui, Segoe UI, Arial; }
     </style>
+
+    <!-- Reusable hash mark (drawn, not a font) -->
+    <g id="hash">
+      <!-- two verticals -->
+      <line class="hash" x1="-6" y1="-10" x2="-6" y2="10"/>
+      <line class="hash" x1="6"  y1="-10" x2="6"  y2="10"/>
+      <!-- two horizontals -->
+      <line class="hash" x1="-12" y1="-4" x2="12" y2="-4"/>
+      <line class="hash" x1="-12" y1="4"  x2="12" y2="4"/>
+    </g>
   </defs>
 
-  <!-- background -->
   <rect class="bg" x="0" y="0" width="1200" height="320"/>
 
-  <!-- MANY small hashes scattered (static “floating” look for GitHub) -->
-  <!-- Top area -->
+  <!-- neon wave -->
+  <path class="line" d="M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207">
+    <animate attributeName="d" dur="7s" repeatCount="indefinite"
+      values="
+        M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207;
+        M0,212 C220,262 380,152 560,212 C740,272 930,162 1200,222;
+        M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207
+      "/>
+  </path>
+
+  <!-- scattered neon hashes -->
   <g>
-    <use href="#hash" class="bh1" transform="translate(70 55)   scale(.095) rotate(-12)"/>
-    <use href="#hash" class="bh2" transform="translate(140 40)  scale(.075) rotate(18)"/>
-    <use href="#hash" class="bh1" transform="translate(220 62)  scale(.085) rotate(8)"/>
-    <use href="#hash" class="bh2" transform="translate(300 38)  scale(.070) rotate(-20)"/>
-    <use href="#hash" class="bh1" transform="translate(380 56)  scale(.095) rotate(14)"/>
-    <use href="#hash" class="bh2" transform="translate(470 44)  scale(.075) rotate(-8)"/>
-    <use href="#hash" class="bh1" transform="translate(560 60)  scale(.085) rotate(22)"/>
-    <use href="#hash" class="bh2" transform="translate(650 40)  scale(.070) rotate(-14)"/>
-    <use href="#hash" class="bh1" transform="translate(740 62)  scale(.095) rotate(10)"/>
-    <use href="#hash" class="bh2" transform="translate(830 45)  scale(.075) rotate(-24)"/>
-    <use href="#hash" class="bh1" transform="translate(920 58)  scale(.085) rotate(16)"/>
-    <use href="#hash" class="bh2" transform="translate(1010 42) scale(.070) rotate(-10)"/>
-    <use href="#hash" class="bh1" transform="translate(1100 58) scale(.085) rotate(20)"/>
-
-    <use href="#hash" class="bh3" transform="translate(180 95)  scale(.060) rotate(6)"/>
-    <use href="#hash" class="bh3" transform="translate(520 92)  scale(.055) rotate(-8)"/>
-    <use href="#hash" class="bh3" transform="translate(885 92)  scale(.058) rotate(10)"/>
+    <use href="#hash" transform="translate(120 70) rotate(12) scale(1.3)"/>
+    <use href="#hash" class="hashSoft" transform="translate(190 210) rotate(-18) scale(0.9)"/>
+    <use href="#hash" transform="translate(320 120) rotate(25) scale(1.0)"/>
+    <use href="#hash" class="hashSoft" transform="translate(420 60) rotate(-10) scale(0.8)"/>
+    <use href="#hash" transform="translate(520 250) rotate(8) scale(1.1)"/>
+    <use href="#hash" class="hashSoft" transform="translate(640 90) rotate(20) scale(0.85)"/>
+    <use href="#hash" transform="translate(740 170) rotate(-22) scale(1.0)"/>
+    <use href="#hash" class="hashSoft" transform="translate(860 250) rotate(16) scale(0.9)"/>
+    <use href="#hash" transform="translate(980 80) rotate(-8) scale(1.2)"/>
+    <use href="#hash" class="hashSoft" transform="translate(1080 190) rotate(10) scale(0.8)"/>
   </g>
 
-  <!-- Middle area (avoid placing behind the title for clarity) -->
-  <g>
-    <use href="#hash" class="bh2" transform="translate(95 155)  scale(.070) rotate(10)"/>
-    <use href="#hash" class="bh1" transform="translate(210 175) scale(.080) rotate(-14)"/>
-    <use href="#hash" class="bh2" transform="translate(325 150) scale(.070) rotate(20)"/>
-    <use href="#hash" class="bh1" transform="translate(435 182) scale(.085) rotate(-10)"/>
+  <!-- a few moving hashes (may animate depending on GitHub rendering) -->
+  <g class="hashSoft">
+    <use href="#hash" transform="translate(90 150) rotate(0) scale(0.9)">
+      <animateTransform attributeName="transform" type="translate" additive="sum"
+        dur="7s" repeatCount="indefinite" values="0 0; 30 -18; 0 0"/>
+      <animateTransform attributeName="transform" type="rotate" additive="sum"
+        dur="6s" repeatCount="indefinite" values="0; 180; 360"/>
+    </use>
 
-    <use href="#hash" class="bh2" transform="translate(760 175) scale(.078) rotate(-18)"/>
-    <use href="#hash" class="bh1" transform="translate(880 180) scale(.085) rotate(12)"/>
-    <use href="#hash" class="bh2" transform="translate(1045 165) scale(.072) rotate(22)"/>
+    <use href="#hash" transform="translate(1040 140) rotate(0) scale(0.95)">
+      <animateTransform attributeName="transform" type="translate" additive="sum"
+        dur="8s" repeatCount="indefinite" values="0 0; -36 20; 0 0"/>
+      <animateTransform attributeName="transform" type="rotate" additive="sum"
+        dur="7s" repeatCount="indefinite" values="0; -180; -360"/>
+    </use>
   </g>
 
-  <!-- Bottom area -->
-  <g>
-    <use href="#hash" class="bh1" transform="translate(150 265) scale(.090) rotate(12)"/>
-    <use href="#hash" class="bh2" transform="translate(260 235) scale(.070) rotate(-18)"/>
-    <use href="#hash" class="bh1" transform="translate(360 275) scale(.095) rotate(8)"/>
-    <use href="#hash" class="bh2" transform="translate(460 242) scale(.070) rotate(20)"/>
-    <use href="#hash" class="bh1" transform="translate(560 268) scale(.090) rotate(-10)"/>
-    <use href="#hash" class="bh2" transform="translate(660 238) scale(.070) rotate(14)"/>
-    <use href="#hash" class="bh1" transform="translate(760 275) scale(.095) rotate(-16)"/>
-    <use href="#hash" class="bh2" transform="translate(860 242) scale(.070) rotate(18)"/>
-    <use href="#hash" class="bh1" transform="translate(960 268) scale(.090) rotate(-8)"/>
-    <use href="#hash" class="bh2" transform="translate(1060 240) scale(.070) rotate(22)"/>
-
-    <use href="#hash" class="bh3" transform="translate(90 230)  scale(.055) rotate(-6)"/>
-    <use href="#hash" class="bh3" transform="translate(1120 210) scale(.058) rotate(14)"/>
-  </g>
-
-  <!-- neon wave (static for GitHub) -->
-  <path class="line" d="M0,222 C180,182 360,262 540,222 C720,182 900,262 1200,207"/>
-
-  <!-- small accent shapes (kept subtle + professional) -->
-  <g filter="url(#neon)" opacity="0.9">
-    <g transform="translate(560 118)">
-      <polygon fill="url(#g)" points="0,-34 29,-17 29,17 0,34 -29,17 -29,-17"/>
-    </g>
-
-    <rect x="72" y="252" width="16" height="16" rx="4" fill="url(#g)" opacity="0.45"/>
-    <rect x="1082" y="242" width="20" height="20" rx="5" fill="url(#g)" opacity="0.45"/>
-  </g>
-
-  <!-- title (glow + crisp overlay) -->
+  <!-- title + subtitle (glow + crisp overlay) -->
   <g>
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.95" letter-spacing="1"
       filter="url(#neon)">
       MARCO THARWAT HESHMAT
     </text>
-
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.98" letter-spacing="1">
       MARCO THARWAT HESHMAT
     </text>
 
+    <!-- subtitle glow (behind) -->
     <text x="50%" y="75%" text-anchor="middle"
       font-size="18" fill="#F5F3FF" opacity="0.85" filter="url(#neon)">
       &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
     </text>
-
+    <!-- subtitle crisp (on top) -->
     <text x="50%" y="75%" text-anchor="middle"
       font-size="18" fill="#FFFFFF" opacity="0.92">
       &#46;NET Backend Developer • ASP&#46;NET Core • C# • SQL Server
