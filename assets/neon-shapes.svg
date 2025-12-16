@@ -15,7 +15,7 @@
       <stop offset="100%" stop-color="#070014" stop-opacity="1"/>
     </radialGradient>
 
-    <!-- Foreground neon glow -->
+    <!-- Neon bloom glow (for foreground shapes/text only) -->
     <filter id="neon" x="-90%" y="-90%" width="280%" height="280%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="auraAlpha"/>
       <feFlood flood-color="#C026D3" flood-opacity="0.95" result="auraColor"/>
@@ -40,12 +40,12 @@
       </feMerge>
     </filter>
 
-    <!-- Subtle glow for BACKGROUND hashes only (small, professional) -->
+    <!-- Soft glow for background hashes (subtle) -->
     <filter id="bgSoft" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="a"/>
-      <feFlood flood-color="#A855F7" flood-opacity="0.45" result="c"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="a"/>
+      <feFlood flood-color="#A855F7" flood-opacity="0.35" result="c"/>
       <feComposite in="c" in2="a" operator="in" result="g1"/>
-      <feGaussianBlur in="g1" stdDeviation="3.2" result="g2"/>
+      <feGaussianBlur in="g1" stdDeviation="2.6" result="g2"/>
       <feMerge>
         <feMergeNode in="g2"/>
         <feMergeNode in="SourceGraphic"/>
@@ -62,137 +62,64 @@
 
     <style>
       .bg { fill:url(#bgGlow); }
+
+      /* background hashes */
+      .bh  { fill:#A855F7; opacity:.12; filter:url(#bgSoft); }
+      .bh2 { fill:#C026D3; opacity:.10; filter:url(#bgSoft); }
+
+      /* foreground */
       .shape { fill:url(#g); opacity:1; filter:url(#neon); }
       .soft  { opacity:.45; }
       .line  { stroke:url(#g); stroke-width:2.6; opacity:.85; filter:url(#neon); fill:none; }
-
-      /* background floating hashes */
-      .bh { fill:#A855F7; opacity:.10; filter:url(#bgSoft); }
-      .bh2 { fill:#C026D3; opacity:.08; filter:url(#bgSoft); }
 
       text { font-family: ui-sans-serif, system-ui, Segoe UI, Arial; }
     </style>
   </defs>
 
-  <!-- background -->
   <rect class="bg" x="0" y="0" width="1200" height="320"/>
 
-  <!-- MANY small floating hashes in the background -->
+  <!-- MANY small hashes in the background (static scatter = “floating” look in GitHub) -->
   <g id="bgHashes">
-    <!-- Tip: scale controls size; opacity is in the class (.bh/.bh2) -->
+    <!-- top band -->
+    <use href="#hash" class="bh"  transform="translate(80 55)  scale(.10) rotate(-12)"/>
+    <use href="#hash" class="bh2" transform="translate(145 42) scale(.08) rotate(18)"/>
+    <use href="#hash" class="bh"  transform="translate(215 62) scale(.09) rotate(8)"/>
+    <use href="#hash" class="bh2" transform="translate(285 38) scale(.07) rotate(-20)"/>
+    <use href="#hash" class="bh"  transform="translate(350 58) scale(.10) rotate(14)"/>
+    <use href="#hash" class="bh2" transform="translate(420 46) scale(.08) rotate(-8)"/>
+    <use href="#hash" class="bh"  transform="translate(495 60) scale(.09) rotate(22)"/>
+    <use href="#hash" class="bh2" transform="translate(570 40) scale(.07) rotate(-14)"/>
+    <use href="#hash" class="bh"  transform="translate(640 62) scale(.10) rotate(10)"/>
+    <use href="#hash" class="bh2" transform="translate(710 45) scale(.08) rotate(-24)"/>
+    <use href="#hash" class="bh"  transform="translate(785 58) scale(.09) rotate(16)"/>
+    <use href="#hash" class="bh2" transform="translate(860 42) scale(.07) rotate(-10)"/>
+    <use href="#hash" class="bh"  transform="translate(930 60) scale(.10) rotate(6)"/>
+    <use href="#hash" class="bh2" transform="translate(1005 44) scale(.08) rotate(-18)"/>
+    <use href="#hash" class="bh"  transform="translate(1080 58) scale(.09) rotate(20)"/>
 
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="18s" repeatCount="indefinite"
-        values="translate(90 60) scale(0.16) rotate(-8);
-                translate(140 40) scale(0.16) rotate(10);
-                translate(90 60) scale(0.16) rotate(-8)"/>
-    </use>
+    <!-- mid scatter -->
+    <use href="#hash" class="bh2" transform="translate(110 125) scale(.07) rotate(8)"/>
+    <use href="#hash" class="bh"  transform="translate(210 150) scale(.08) rotate(-16)"/>
+    <use href="#hash" class="bh2" transform="translate(310 120) scale(.07) rotate(20)"/>
+    <use href="#hash" class="bh"  transform="translate(405 160) scale(.09) rotate(-10)"/>
+    <use href="#hash" class="bh2" transform="translate(505 135) scale(.07) rotate(14)"/>
+    <use href="#hash" class="bh"  transform="translate(615 150) scale(.08) rotate(-22)"/>
+    <use href="#hash" class="bh2" transform="translate(720 125) scale(.07) rotate(10)"/>
+    <use href="#hash" class="bh"  transform="translate(820 155) scale(.09) rotate(-12)"/>
+    <use href="#hash" class="bh2" transform="translate(920 132) scale(.07) rotate(24)"/>
+    <use href="#hash" class="bh"  transform="translate(1040 155) scale(.08) rotate(-8)"/>
 
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="22s" repeatCount="indefinite"
-        values="translate(210 210) scale(0.14) rotate(18);
-                translate(170 235) scale(0.14) rotate(-6);
-                translate(210 210) scale(0.14) rotate(18)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="26s" repeatCount="indefinite"
-        values="translate(320 85) scale(0.12) rotate(14);
-                translate(360 110) scale(0.12) rotate(-12);
-                translate(320 85) scale(0.12) rotate(14)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="20s" repeatCount="indefinite"
-        values="translate(430 250) scale(0.15) rotate(-18);
-                translate(470 230) scale(0.15) rotate(8);
-                translate(430 250) scale(0.15) rotate(-18)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="24s" repeatCount="indefinite"
-        values="translate(520 70) scale(0.13) rotate(-6);
-                translate(560 55) scale(0.13) rotate(12);
-                translate(520 70) scale(0.13) rotate(-6)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="28s" repeatCount="indefinite"
-        values="translate(610 180) scale(0.12) rotate(10);
-                translate(575 195) scale(0.12) rotate(-10);
-                translate(610 180) scale(0.12) rotate(10)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="21s" repeatCount="indefinite"
-        values="translate(700 55) scale(0.14) rotate(16);
-                translate(740 80) scale(0.14) rotate(-8);
-                translate(700 55) scale(0.14) rotate(16)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="25s" repeatCount="indefinite"
-        values="translate(780 265) scale(0.13) rotate(-12);
-                translate(820 245) scale(0.13) rotate(14);
-                translate(780 265) scale(0.13) rotate(-12)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="23s" repeatCount="indefinite"
-        values="translate(880 190) scale(0.12) rotate(8);
-                translate(850 170) scale(0.12) rotate(-14);
-                translate(880 190) scale(0.12) rotate(8)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="27s" repeatCount="indefinite"
-        values="translate(955 70) scale(0.13) rotate(-10);
-                translate(985 95) scale(0.13) rotate(10);
-                translate(955 70) scale(0.13) rotate(-10)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="19s" repeatCount="indefinite"
-        values="translate(1040 235) scale(0.14) rotate(12);
-                translate(1010 255) scale(0.14) rotate(-8);
-                translate(1040 235) scale(0.14) rotate(12)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="30s" repeatCount="indefinite"
-        values="translate(1125 120) scale(0.12) rotate(20);
-                translate(1095 100) scale(0.12) rotate(-12);
-                translate(1125 120) scale(0.12) rotate(20)"/>
-    </use>
-
-    <!-- a few extra tiny ones for density -->
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="29s" repeatCount="indefinite"
-        values="translate(160 130) scale(0.10) rotate(-10);
-                translate(190 150) scale(0.10) rotate(10);
-                translate(160 130) scale(0.10) rotate(-10)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="31s" repeatCount="indefinite"
-        values="translate(360 170) scale(0.10) rotate(12);
-                translate(330 155) scale(0.10) rotate(-12);
-                translate(360 170) scale(0.10) rotate(12)"/>
-    </use>
-
-    <use href="#hash" class="bh">
-      <animate attributeName="transform" dur="33s" repeatCount="indefinite"
-        values="translate(640 110) scale(0.10) rotate(8);
-                translate(670 125) scale(0.10) rotate(-10);
-                translate(640 110) scale(0.10) rotate(8)"/>
-    </use>
-
-    <use href="#hash" class="bh2">
-      <animate attributeName="transform" dur="34s" repeatCount="indefinite"
-        values="translate(905 255) scale(0.10) rotate(-16);
-                translate(875 240) scale(0.10) rotate(10);
-                translate(905 255) scale(0.10) rotate(-16)"/>
-    </use>
+    <!-- bottom scatter -->
+    <use href="#hash" class="bh"  transform="translate(160 260) scale(.09) rotate(12)"/>
+    <use href="#hash" class="bh2" transform="translate(260 235) scale(.07) rotate(-18)"/>
+    <use href="#hash" class="bh"  transform="translate(360 270) scale(.10) rotate(8)"/>
+    <use href="#hash" class="bh2" transform="translate(460 242) scale(.07) rotate(20)"/>
+    <use href="#hash" class="bh"  transform="translate(560 265) scale(.09) rotate(-10)"/>
+    <use href="#hash" class="bh2" transform="translate(660 235) scale(.07) rotate(14)"/>
+    <use href="#hash" class="bh"  transform="translate(760 270) scale(.10) rotate(-16)"/>
+    <use href="#hash" class="bh2" transform="translate(860 242) scale(.07) rotate(18)"/>
+    <use href="#hash" class="bh"  transform="translate(960 265) scale(.09) rotate(-8)"/>
+    <use href="#hash" class="bh2" transform="translate(1060 238) scale(.07) rotate(22)"/>
   </g>
 
   <!-- neon wave -->
@@ -205,7 +132,7 @@
       "/>
   </path>
 
-  <!-- Foreground # blobs (replacing circles) -->
+  <!-- Foreground # blobs -->
   <use class="shape soft" href="#hash">
     <animate attributeName="transform" dur="6.8s" repeatCount="indefinite"
       values="
@@ -259,7 +186,7 @@
     </rect>
   </g>
 
-  <!-- title (glow + crisp overlay) -->
+  <!-- title -->
   <g>
     <text x="50%" y="62%" text-anchor="middle"
       font-size="46" fill="#FFFFFF" opacity="0.95" letter-spacing="1"
